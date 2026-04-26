@@ -84,9 +84,11 @@ export default function Footer() {
                   className="font-body text-sm font-light"
                   style={{ color: "rgba(250,248,245,0.55)" }}
                 >
-                  Centre-ville de Palaiseau
+                  24 Rue de Paris
                   <br />
-                  91120 Palaiseau
+                  Palaiseau, 91120
+                  <br />
+                  Au centre-ville, 3 min à pied de la Gare RER
                 </p>
               </div>
               <div>
@@ -100,7 +102,9 @@ export default function Footer() {
                   className="font-body text-sm font-light"
                   style={{ color: "rgba(250,248,245,0.55)" }}
                 >
-                  Mar–Sam : 9h–19h
+                  Mar–Ven : 9h–19h
+                  <br />
+                  Sam : 9h–20h
                   <br />
                   Dim : 9h–13h
                 </p>

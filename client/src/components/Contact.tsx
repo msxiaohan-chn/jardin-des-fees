@@ -92,7 +92,7 @@ export default function Contact() {
                     </svg>
                   ),
                   label: "Adresse",
-                  value: "Centre-ville de Palaiseau, 91120",
+                  value: "24 Rue de Paris, Palaiseau, 91120\nAu centre-ville de Palaiseau, 3 minutes à pied de la Gare RER Palaiseau",
                 },
                 {
                   icon: (
@@ -101,7 +101,7 @@ export default function Contact() {
                     </svg>
                   ),
                   label: "Téléphone",
-                  value: "Nous appeler pour un devis",
+                  value: "Nous appeler pour une commande ou un devis au 0160143989",
                 },
                 {
                   icon: (
@@ -111,7 +111,7 @@ export default function Contact() {
                     </svg>
                   ),
                   label: "Horaires",
-                  value: "Mardi — Samedi : 9h — 19h\nDimanche : 9h — 13h",
+                  value: "Mardi — Vendredi : 9h — 19h\nSamedi : 9h — 20h\nDimanche : 9h — 13h",
                 },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-4">
