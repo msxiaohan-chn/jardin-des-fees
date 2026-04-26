@@ -49,13 +49,13 @@ export default function Navbar() {
               className="font-display text-xl lg:text-2xl font-semibold tracking-wide"
               style={{ color: "#2c2c2c" }}
             >
-              Jardin des Fées
+              Au Jardin des Fées
             </span>
             <span
               className="text-xs tracking-[0.2em] uppercase font-body font-light"
               style={{ color: "#6b7c5c" }}
             >
-              Fleuriste · Palaiseau
+              Fleuriste artisanal
             </span>
           </button>
 

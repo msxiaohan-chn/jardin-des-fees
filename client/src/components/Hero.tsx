@@ -68,7 +68,7 @@ export default function Hero() {
             Jardin
             <br />
             <em className="font-normal italic" style={{ color: "#e8c4c0" }}>
-              des Fées
+              Au Jardin des Fées
             </em>
           </h1>
 
@@ -78,7 +78,7 @@ export default function Hero() {
             className="font-body text-lg lg:text-xl font-light leading-relaxed mb-10 max-w-xl"
             style={{ color: "rgba(250,248,245,0.85)" }}
           >
-            Où chaque pétale raconte une histoire. Caroline transforme vos émotions en compositions florales uniques, au cœur de Palaiseau.
+            Avec plus de 40 ans d'expériences, Caroline transforme vos émotions en compositions florales uniques, au cœur de Palaiseau.
           </p>
 
           {/* CTAs */}
