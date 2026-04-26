@@ -19,7 +19,7 @@ const produits = [
     description: "Créations entièrement sur mesure selon vos couleurs, fleurs préférées et budget.",
     price: "Sur devis",
     tag: "Sur mesure",
-    image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600&q=80",
+    image: "/manus-storage/WechatIMG1593_c96b91d7.jpg",
     highlight: false,
   },
   {
