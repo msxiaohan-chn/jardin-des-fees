@@ -77,7 +77,7 @@ export default function Contact() {
                 className="font-body text-base font-light leading-relaxed mb-10"
                 style={{ color: "rgba(250,248,245,0.75)" }}
               >
-                Caroline est à votre écoute pour créer la composition florale qui vous ressemble. N'hésitez pas à nous contacter pour tout renseignement ou devis.
+                Caroline et son équipe sont à votre écoute pour créer la composition florale qui vous ressemble. N'hésitez pas à nous contacter pour tout renseignement ou devis.
               </p>
             </div>
 

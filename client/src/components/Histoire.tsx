@@ -93,7 +93,7 @@ export default function Histoire() {
                 className="font-display text-xl lg:text-2xl italic font-light leading-relaxed"
                 style={{ color: "#2c2c2c" }}
               >
-                "Où chaque pétale raconte une histoire."
+                Un savoir-faire artisanal transmis avec amour et authenticité.
               </p>
             </blockquote>
 

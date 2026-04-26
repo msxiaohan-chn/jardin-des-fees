@@ -31,7 +31,7 @@ export default function Footer() {
               className="font-body text-sm font-light leading-relaxed"
               style={{ color: "rgba(250,248,245,0.55)" }}
             >
-              Où chaque pétale raconte une histoire. Caroline transforme vos émotions en compositions florales uniques.
+              
             </p>
           </div>
 
