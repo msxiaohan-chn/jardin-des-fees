@@ -1,20 +1,12 @@
 /*
  * JARDIN DES FÉES — Contact Section
- * Style: Fond vert mousse, formulaire épuré, informations pratiques
+ * Style: Fond vert mousse, informations pratiques
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,18 +24,6 @@ export default function Contact() {
     reveals?.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  const inputClass =
-    "w-full font-body text-sm font-light px-4 py-3 border bg-transparent outline-none transition-colors focus:border-[#c4847a]";
-  const inputStyle = {
-    borderColor: "rgba(250,248,245,0.2)",
-    color: "#faf8f5",
-  };
 
   return (
     <section
@@ -135,142 +115,8 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — Form */}
-          <div className="w-full lg:w-7/12 reveal">
-            {submitted ? (
-              <div
-                className="h-full flex flex-col items-center justify-center text-center p-12 border"
-                style={{ borderColor: "rgba(250,248,245,0.15)" }}
-              >
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-                  style={{ backgroundColor: "rgba(250,248,245,0.1)" }}
-                >
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e8c4c0" strokeWidth="1.5">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>
-                </div>
-                <h3
-                  className="font-display text-2xl font-semibold mb-3"
-                  style={{ color: "#faf8f5" }}
-                >
-                  Message envoyé !
-                </h3>
-                <p
-                  className="font-body text-sm font-light"
-                  style={{ color: "rgba(250,248,245,0.7)" }}
-                >
-                  Caroline vous répondra dans les plus brefs délais.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      className="font-body text-xs tracking-widest uppercase block mb-2"
-                      style={{ color: "rgba(250,248,245,0.5)" }}
-                    >
-                      Nom *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className={inputClass}
-                      style={inputStyle}
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      className="font-body text-xs tracking-widest uppercase block mb-2"
-                      style={{ color: "rgba(250,248,245,0.5)" }}
-                    >
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className={inputClass}
-                      style={inputStyle}
-                      placeholder="votre@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      className="font-body text-xs tracking-widest uppercase block mb-2"
-                      style={{ color: "rgba(250,248,245,0.5)" }}
-                    >
-                      Téléphone
-                    </label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className={inputClass}
-                      style={inputStyle}
-                      placeholder="06 XX XX XX XX"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      className="font-body text-xs tracking-widest uppercase block mb-2"
-                      style={{ color: "rgba(250,248,245,0.5)" }}
-                    >
-                      Service
-                    </label>
-                    <select
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className={inputClass}
-                      style={{ ...inputStyle, backgroundColor: "transparent" }}
-                    >
-                      <option value="" style={{ backgroundColor: "#6b7c5c" }}>Choisir...</option>
-                      <option value="bouquet" style={{ backgroundColor: "#6b7c5c" }}>Bouquet personnalisé</option>
-                      <option value="mariage" style={{ backgroundColor: "#6b7c5c" }}>Mariage</option>
-                      <option value="entreprise" style={{ backgroundColor: "#6b7c5c" }}>Événement entreprise</option>
-                      <option value="deuil" style={{ backgroundColor: "#6b7c5c" }}>Service deuil</option>
-                      <option value="livraison" style={{ backgroundColor: "#6b7c5c" }}>Livraison</option>
-                      <option value="autre" style={{ backgroundColor: "#6b7c5c" }}>Autre</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    className="font-body text-xs tracking-widest uppercase block mb-2"
-                    style={{ color: "rgba(250,248,245,0.5)" }}
-                  >
-                    Message *
-                  </label>
-                  <textarea
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className={inputClass + " resize-none"}
-                    style={inputStyle}
-                    placeholder="Décrivez votre projet, l'occasion, vos fleurs préférées..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full font-body text-sm tracking-widest uppercase py-4 transition-all duration-300 hover:opacity-90 mt-2"
-                  style={{ backgroundColor: "#c4847a", color: "#faf8f5" }}
-                >
-                  Envoyer ma demande
-                </button>
-              </form>
-            )}
-          </div>
+          {/* Right — Empty for spacing */}
+          <div className="w-full lg:w-7/12" />
         </div>
       </div>
     </section>
