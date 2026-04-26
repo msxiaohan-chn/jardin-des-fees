@@ -148,17 +148,8 @@ export default function Deuil() {
             </div>
           </div>
 
-          {/* Right Column — Image + Options */}
+          {/* Right Column — Options */}
           <div className="lg:w-80 xl:w-96 flex flex-col gap-8">
-            {/* Image */}
-            <div className="reveal overflow-hidden">
-              <img
-                src="/manus-storage/15981777221046_.pic_hd_99c2879b.webp"
-                alt="Composition deuil"
-                className="w-full aspect-[3/4] object-cover"
-              />
-            </div>
-
             {/* Options */}
             <div className="reveal space-y-4">
               {options.map((opt) => (
