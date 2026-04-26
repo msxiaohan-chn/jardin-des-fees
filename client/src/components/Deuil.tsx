@@ -113,7 +113,7 @@ export default function Deuil() {
               className="font-display text-xl font-semibold mb-8 italic"
               style={{ color: "rgba(250,248,245,0.6)" }}
             >
-              Nos compositions
+              Venez en boutique pour consulter notre album de collections de compositions
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {compositions.map((item, index) => (
