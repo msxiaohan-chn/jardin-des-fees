@@ -153,7 +153,7 @@ export default function Deuil() {
             {/* Image */}
             <div className="reveal overflow-hidden">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663601447535/PmHDyYTBYPQxyzb3eB8JMt/deuil-flowers-YjBAr7AyYwfxDNwYUktWqm.webp"
+                src="/manus-storage/15981777221046_.pic_hd_99c2879b.webp"
                 alt="Composition deuil"
                 className="w-full aspect-[3/4] object-cover"
               />
