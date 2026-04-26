@@ -21,7 +21,7 @@ const services = [
     description:
       "Une touche romantique pour votre jour spécial, avec des compositions florales de rêve. Bouquets de mariée, boutonnières, arches et décoration de salle.",
     image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663601447535/PmHDyYTBYPQxyzb3eB8JMt/wedding-flowers-X7G2hAkQcppSUYqpQM86zi.webp",
+      "/manus-storage/wedding-flowers-custom_18cb96f3.jpg",
     tag: "Romantique",
   },
   {
