@@ -23,11 +23,19 @@ const produits = [
     highlight: false,
   },
   {
-    name: "Centres de Tables",
+    name: "Centres de Table",
     description: "Compositions florales élégantes pour décorer vos tables de fête et événements.",
     price: "Sur devis",
     tag: null,
     image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80",
+    highlight: false,
+  },
+  {
+    name: "Compositions Florales en Pot",
+    description: "Créations florales en pot, parfaites pour décorer votre intérieur ou offrir en cadeau.",
+    price: "Sur devis",
+    tag: null,
+    image: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80",
     highlight: false,
   },
   {
