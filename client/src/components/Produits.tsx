@@ -51,7 +51,7 @@ const produits = [
     description: "Arbustes, vivaces et annuelles pour embellir vos espaces extérieurs toute l'année.",
     price: "Sur devis",
     tag: null,
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80",
+    image: "/manus-storage/WechatIMG1588_b2c0909b.jpg",
     highlight: false,
   },
 ];
