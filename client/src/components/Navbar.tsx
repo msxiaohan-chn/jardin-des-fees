@@ -55,7 +55,7 @@ export default function Navbar() {
               className="text-xs tracking-[0.2em] uppercase font-body font-light"
               style={{ color: "#6b7c5c" }}
             >
-              Fleuriste artisanal
+              
             </span>
           </button>
 
