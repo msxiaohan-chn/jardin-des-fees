@@ -71,8 +71,8 @@ const produits = [
     highlight: false,
   },
   {
-    name: "Cœur pour Deuil",
-    description: "Le cœur floral, symbole d'amour éternel pour accompagner vos proches.",
+    name: "Cœurs pour Deuil",
+    description: "Les cœurs floraux, symboles d'amour éternel pour accompagner vos proches.",
     price: "Sur devis",
     tag: null,
     image: "https://images.unsplash.com/photo-1463936575829-25148e1db1b8?w=600&q=80",
