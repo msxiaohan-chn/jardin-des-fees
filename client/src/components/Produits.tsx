@@ -35,7 +35,7 @@ const produits = [
     description: "Créations florales en pot, parfaites pour décorer votre intérieur ou offrir en cadeau.",
     price: "Sur devis",
     tag: null,
-    image: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80",
+    image: "/manus-storage/WechatIMG1592_e7040f77.jpg",
     highlight: false,
   },
   {
