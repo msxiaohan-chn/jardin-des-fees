@@ -158,7 +158,7 @@ export default function Produits() {
               style={{ transitionDelay: `${index * 80}ms` }}
             >
               {/* Image */}
-              <div className="aspect-[4/3] overflow-hidden relative">
+              <div className={produit.name === "Couronnes pour Deuil" ? "aspect-[5/3] overflow-hidden relative" : "aspect-[4/3] overflow-hidden relative"}>
                 <img
                   src={produit.image}
                   alt={produit.name}
