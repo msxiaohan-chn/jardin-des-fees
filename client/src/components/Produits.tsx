@@ -75,7 +75,7 @@ const produits = [
     description: "Les cœurs floraux, symboles d'amour éternel pour accompagner vos proches.",
     price: "Sur devis",
     tag: null,
-    image: "https://images.unsplash.com/photo-1463936575829-25148e1db1b8?w=600&q=80",
+    image: "/manus-storage/WechatIMG1604_72d1e63f.jpg",
     highlight: false,
   },
   {
