@@ -67,7 +67,7 @@ const produits = [
     description: "Couronnes mortuaires réalisées avec soin, pour un dernier hommage.",
     price: "Sur devis",
     tag: null,
-    image: "/manus-storage/WechatIMG1603_cb54cb17.jpg",
+    image: "/manus-storage/couronnes_gradient_bg_9c1771df.png",
     highlight: false,
   },
   {
