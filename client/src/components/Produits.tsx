@@ -59,7 +59,7 @@ const produits = [
     description: "Composition pyramidale imposante, hommage floral d'une grande prestance.",
     price: "Sur devis",
     tag: null,
-    image: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=600&q=80",
+    image: "/manus-storage/WechatIMG1602_9890a1fc.jpg",
     highlight: false,
   },
   {
