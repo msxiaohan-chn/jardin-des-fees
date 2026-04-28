@@ -1,9 +1,11 @@
 /*
  * JARDIN DES FÉES — Produits Section
  * Style: Grille de cartes élégantes avec prix et hover effects
+ * Feature: Image carousel avec indicateurs de points dynamiques
  */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const produits = [
   {
@@ -11,7 +13,7 @@ const produits = [
     description: "Compositions fraîches selon les arrivages du moment, reflétant la beauté de chaque saison.",
     price: "À partir de 26 €",
     tag: "Populaire",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"],
     highlight: true,
   },
   {
@@ -19,7 +21,7 @@ const produits = [
     description: "Créations entièrement sur mesure selon vos couleurs, fleurs préférées et budget.",
     price: "Sur devis",
     tag: "Sur mesure",
-    image: "/manus-storage/WechatIMG1593_c96b91d7.jpg",
+    images: ["/manus-storage/WechatIMG1593_c96b91d7.jpg"],
     highlight: false,
   },
   {
@@ -27,7 +29,7 @@ const produits = [
     description: "Compositions florales élégantes pour décorer vos tables de fête et événements.",
     price: "Sur devis",
     tag: null,
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80",
+    images: ["https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80"],
     highlight: false,
   },
   {
@@ -35,7 +37,7 @@ const produits = [
     description: "Créations florales en pot, parfaites pour décorer votre intérieur ou offrir en cadeau.",
     price: "Sur devis",
     tag: null,
-    image: "/manus-storage/WechatIMG1592_e7040f77.jpg",
+    images: ["/manus-storage/WechatIMG1592_e7040f77.jpg"],
     highlight: false,
   },
   {
@@ -43,7 +45,7 @@ const produits = [
     description: "Composition florale en forme de coussin rond, symbole de douceur et de paix.",
     price: "Sur devis",
     tag: null,
-    image: "/manus-storage/15981777221046_.pic_hd_99c2879b.webp",
+    images: ["/manus-storage/15981777221046_.pic_hd_99c2879b.webp"],
     highlight: false,
   },
   {
@@ -51,7 +53,7 @@ const produits = [
     description: "Coussin allongé élégant, idéal pour accompagner les cercueils avec dignité.",
     price: "Sur devis",
     tag: null,
-    image: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80",
+    images: ["https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80"],
     highlight: false,
   },
   {
@@ -59,7 +61,7 @@ const produits = [
     description: "Composition pyramidale imposante, hommage floral d'une grande prestance.",
     price: "Sur devis",
     tag: null,
-    image: "/manus-storage/WechatIMG1602_9890a1fc.jpg",
+    images: ["/manus-storage/WechatIMG1602_9890a1fc.jpg"],
     highlight: false,
   },
   {
@@ -67,7 +69,7 @@ const produits = [
     description: "Couronnes mortuaires réalisées avec soin, pour un dernier hommage.",
     price: "Sur devis",
     tag: null,
-    image: "/manus-storage/couronnes_outpainting_1505f558.png",
+    images: ["/manus-storage/couronnes_outpainting_1505f558.png"],
     highlight: false,
   },
   {
@@ -75,7 +77,7 @@ const produits = [
     description: "Les cœurs floraux, symboles d'amour éternel pour accompagner vos proches.",
     price: "Sur devis",
     tag: null,
-    image: "/manus-storage/WechatIMG1604_72d1e63f.jpg",
+    images: ["/manus-storage/WechatIMG1604_72d1e63f.jpg"],
     highlight: false,
   },
   {
@@ -83,7 +85,7 @@ const produits = [
     description: "Une sélection de plantes d'intérieur pour décorer et purifier votre espace de vie.",
     price: "Sur devis",
     tag: null,
-    image: "https://images.unsplash.com/photo-1463936575829-25148e1db1b8?w=600&q=80",
+    images: ["https://images.unsplash.com/photo-1463936575829-25148e1db1b8?w=600&q=80"],
     highlight: false,
   },
   {
@@ -91,10 +93,136 @@ const produits = [
     description: "Arbustes, vivaces et annuelles pour embellir vos espaces extérieurs toute l'année.",
     price: "Sur devis",
     tag: null,
-    image: "/manus-storage/WechatIMG1588_b2c0909b.jpg",
+    images: ["/manus-storage/WechatIMG1588_b2c0909b.jpg"],
     highlight: false,
   },
 ];
+
+// Composant pour la carte produit avec carousel
+function ProductCard({ produit, index }: { produit: typeof produits[0]; index: number }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showNavigation, setShowNavigation] = useState(false);
+  const hasMultipleImages = produit.images.length > 1;
+
+  const handlePrevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev - 1 + produit.images.length) % produit.images.length);
+  };
+
+  const handleNextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % produit.images.length);
+  };
+
+  const handleDotClick = (index: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentImageIndex(index);
+  };
+
+  return (
+    <div
+      key={produit.name}
+      className={`reveal group relative overflow-hidden bg-white transition-shadow duration-300 hover:shadow-lg ${
+        produit.highlight ? "md:col-span-2 lg:col-span-1" : ""
+      }`}
+      style={{ transitionDelay: `${index * 80}ms` }}
+      onMouseEnter={() => setShowNavigation(true)}
+      onMouseLeave={() => setShowNavigation(false)}
+    >
+      {/* Image Container */}
+      <div className={produit.name === "Couronnes pour Deuil" ? "aspect-[5/3] overflow-hidden relative" : "aspect-[4/3] overflow-hidden relative"}>
+        <img
+          src={produit.images[currentImageIndex]}
+          alt={produit.name}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+
+        {/* Navigation Arrows - Only show on hover if multiple images */}
+        {hasMultipleImages && showNavigation && (
+          <>
+            <button
+              onClick={handlePrevImage}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full transition-all duration-200 z-10"
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={handleNextImage}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full transition-all duration-200 z-10"
+              aria-label="Next image"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </>
+        )}
+
+        {/* Dot Indicators - Only show if multiple images */}
+        {hasMultipleImages && (
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {produit.images.map((_, dotIndex) => (
+              <button
+                key={dotIndex}
+                onClick={(e) => handleDotClick(dotIndex, e)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  dotIndex === currentImageIndex
+                    ? "bg-white scale-125"
+                    : "bg-white/50 hover:bg-white/75"
+                }`}
+                aria-label={`Go to image ${dotIndex + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-4 lg:p-5">
+        {produit.tag && (
+          <div
+            className="inline-block font-body text-xs tracking-[0.15em] uppercase px-2.5 py-1 mb-3"
+            style={{ backgroundColor: "#c4847a", color: "#faf8f5" }}
+          >
+            {produit.tag}
+          </div>
+        )}
+
+        <h3
+          className="font-display text-lg lg:text-xl font-semibold mb-2 leading-tight"
+          style={{ color: "#2c2c2c" }}
+        >
+          {produit.name}
+        </h3>
+
+        <p
+          className="font-body text-sm font-light leading-relaxed mb-4 line-clamp-2"
+          style={{ color: "#5a5a5a" }}
+        >
+          {produit.description}
+        </p>
+
+        <div className="flex items-center justify-between">
+          <span
+            className="font-body text-base font-semibold"
+            style={{ color: "#c4847a" }}
+          >
+            {produit.price}
+          </span>
+          <button
+            onClick={() => {
+              const el = document.querySelector("#contact");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="font-body text-xs tracking-widest uppercase px-3 py-1.5 border transition-all duration-300 hover:bg-[#c4847a] hover:border-[#c4847a] hover:text-white"
+            style={{ borderColor: "#c4847a", color: "#c4847a" }}
+          >
+            Devis
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Produits() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -150,67 +278,7 @@ export default function Produits() {
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {produits.map((produit, index) => (
-            <div
-              key={produit.name}
-              className={`reveal group relative overflow-hidden bg-white transition-shadow duration-300 hover:shadow-lg ${
-                produit.highlight ? "md:col-span-2 lg:col-span-1" : ""
-              }`}
-              style={{ transitionDelay: `${index * 80}ms` }}
-            >
-              {/* Image */}
-              <div className={produit.name === "Couronnes pour Deuil" ? "aspect-[5/3] overflow-hidden relative" : "aspect-[4/3] overflow-hidden relative"}>
-                <img
-                  src={produit.image}
-                  alt={produit.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-4 lg:p-5">
-                {produit.tag && (
-                  <div
-                    className="inline-block font-body text-xs tracking-[0.15em] uppercase px-2.5 py-1 mb-3"
-                    style={{ backgroundColor: "#c4847a", color: "#faf8f5" }}
-                  >
-                    {produit.tag}
-                  </div>
-                )}
-
-                <h3
-                  className="font-display text-lg lg:text-xl font-semibold mb-2 leading-tight"
-                  style={{ color: "#2c2c2c" }}
-                >
-                  {produit.name}
-                </h3>
-
-                <p
-                  className="font-body text-sm font-light leading-relaxed mb-4 line-clamp-2"
-                  style={{ color: "#5a5a5a" }}
-                >
-                  {produit.description}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <span
-                    className="font-body text-base font-semibold"
-                    style={{ color: "#c4847a" }}
-                  >
-                    {produit.price}
-                  </span>
-                  <button
-                    onClick={() => {
-                      const el = document.querySelector("#contact");
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="font-body text-xs tracking-widest uppercase px-3 py-1.5 border transition-all duration-300 hover:bg-[#c4847a] hover:border-[#c4847a] hover:text-white"
-                    style={{ borderColor: "#c4847a", color: "#c4847a" }}
-                  >
-                    Devis
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ProductCard key={produit.name} produit={produit} index={index} />
           ))}
         </div>
       </div>
