@@ -77,9 +77,9 @@ const produits: Product[] = [
     price: "Sur devis",
     tag: null,
     images: [
-      { url: "/manus-storage/CoussinAllongé01_e449ccfc.jpg", aspectRatio: "0.75" },
+      { url: "/manus-storage/CoussinAllonge01_new_0d25916b.jpg", aspectRatio: "0.75" },
       { url: "/manus-storage/CoussinAllonge02_a099cbb9.jpg", aspectRatio: "1.01" },
-      { url: "/manus-storage/CoussinAllongé03_611fa1ad.jpg", aspectRatio: "0.75" },
+      { url: "/manus-storage/CoussinAllonge03_new_606f249d.jpg", aspectRatio: "0.75" },
     ],
     highlight: false,
   },
