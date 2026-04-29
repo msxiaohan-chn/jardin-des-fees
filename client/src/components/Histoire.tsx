@@ -1,6 +1,7 @@
 /*
  * JARDIN DES FÉES — Notre Histoire Section
  * Style: Pleine largeur avec image et texte éditorial, citation mise en valeur
+ * Layout: Texte à gauche + Grille d'images à droite (Fleuriste en vedette)
  */
 
 import { useEffect, useRef } from "react";
@@ -21,7 +22,7 @@ export default function Histoire() {
     );
 
     const reveals = sectionRef.current?.querySelectorAll(".reveal");
-    reveals?.forEach((el) => observer.observe(el));
+    reveals?.forEach((el: Element) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -33,38 +34,9 @@ export default function Histoire() {
       style={{ backgroundColor: "#faf8f5" }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-          {/* Image Column */}
-          <div className="w-full lg:w-5/12 reveal">
-            <div className="relative">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663601447535/PmHDyYTBYPQxyzb3eB8JMt/shop-interior-ZsEmsCsz9WeemidpS9RZqa.webp"
-                alt="Jardin des Fées — boutique à Palaiseau"
-                className="w-full aspect-[3/4] object-cover"
-              />
-              {/* Floating badge */}
-              <div
-                className="absolute -bottom-6 -right-6 w-28 h-28 flex flex-col items-center justify-center"
-                style={{ backgroundColor: "#c4847a" }}
-              >
-                <span
-                  className="font-display text-3xl font-bold"
-                  style={{ color: "#faf8f5" }}
-                >
-                  1994
-                </span>
-                <span
-                  className="font-body text-xs tracking-widest uppercase mt-1"
-                  style={{ color: "rgba(250,248,245,0.8)" }}
-                >
-                  Depuis
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Text Column */}
-          <div className="w-full lg:w-7/12 flex flex-col justify-center">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+          {/* Text Column - Left Side */}
+          <div className="w-full lg:w-5/12 flex flex-col justify-start">
             <div className="reveal">
               <p
                 className="font-body text-xs tracking-[0.3em] uppercase mb-4"
@@ -137,6 +109,43 @@ export default function Histoire() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Images Column - Right Side (Staggered Grid) */}
+          <div className="w-full lg:w-7/12 reveal">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {/* Main Image - Florist (Top Left, spans full height on desktop) */}
+              <div className="md:row-span-2">
+                <div className="relative overflow-hidden bg-white shadow-lg h-full">
+                  <img
+                    src="/manus-storage/Fleuriste_94e88796.jpg"
+                    alt="Caroline - Fleuriste artisanale"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Secondary Images - Shop Exterior & Interior (Right Side) */}
+              <div className="space-y-6 lg:space-y-8">
+                {/* Shop Exterior */}
+                <div className="relative overflow-hidden bg-white shadow-lg">
+                  <img
+                    src="/manus-storage/Boutiqueexterieur_a1a5b0de.jpg"
+                    alt="Façade de la boutique Jardin des Fées"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+
+                {/* Shop Interior */}
+                <div className="relative overflow-hidden bg-white shadow-lg">
+                  <img
+                    src="/manus-storage/Boutiqueinterieur_33ebcb34.jpg"
+                    alt="Intérieur de la boutique - Atelier floral"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
