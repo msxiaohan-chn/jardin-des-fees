@@ -91,7 +91,7 @@ const produits: Product[] = [
     images: [
       { url: "/manus-storage/Piramides01_f94557c9.jpg", aspectRatio: "0.75" },
       { url: "/manus-storage/Piramides02_4b996b00.jpg", aspectRatio: "1.02" },
-      { url: "/manus-storage/piramides 03_b11ef704.jpg", aspectRatio: "0.75" },
+      { url: "/manus-storage/Piramides03_545f8fc2.jpg", aspectRatio: "0.75" },
       { url: "/manus-storage/WechatIMG1602_9890a1fc.jpg", aspectRatio: "4/3" },
     ],
     highlight: false,
