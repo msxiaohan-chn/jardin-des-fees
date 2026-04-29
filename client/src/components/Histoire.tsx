@@ -125,7 +125,7 @@ export default function Histoire() {
                   />
                   {/* Floating badge - Depuis 1994 */}
                   <div
-                    className="absolute -bottom-6 -right-6 w-28 h-28 flex flex-col items-center justify-center"
+                    className="absolute bottom-8 -right-12 w-32 h-32 flex flex-col items-center justify-center"
                     style={{ backgroundColor: "#c4847a" }}
                   >
                     <span
