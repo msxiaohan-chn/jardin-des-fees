@@ -123,11 +123,29 @@ export default function Histoire() {
                     alt="Caroline - Fleuriste artisanale"
                     className="w-full h-full object-cover"
                   />
+                  {/* Floating badge - Depuis 1994 */}
+                  <div
+                    className="absolute -bottom-6 -right-6 w-28 h-28 flex flex-col items-center justify-center"
+                    style={{ backgroundColor: "#c4847a" }}
+                  >
+                    <span
+                      className="font-display text-3xl font-bold"
+                      style={{ color: "#faf8f5" }}
+                    >
+                      1994
+                    </span>
+                    <span
+                      className="font-body text-xs tracking-widest uppercase mt-1"
+                      style={{ color: "rgba(250,248,245,0.8)" }}
+                    >
+                      Depuis
+                    </span>
+                  </div>
                 </div>
               </div>
 
               {/* Secondary Images - Shop Exterior & Interior (Right Side) */}
-              <div className="space-y-6 lg:space-y-8">
+              <div className="space-y-12 lg:space-y-16">
                 {/* Shop Exterior */}
                 <div className="relative overflow-hidden bg-white shadow-lg">
                   <img
