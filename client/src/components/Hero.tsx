@@ -65,7 +65,7 @@ export default function Hero() {
             className="font-display text-5xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-6"
             style={{ color: "#faf8f5" }}
           >
-            <em className="font-normal italic" style={{ color: "#e8c4c0" }}>
+            <em className="font-normal italic" style={{ color: "#ebe1e0" }}>
               Au Jardin des Fées
             </em>
           </h1>
