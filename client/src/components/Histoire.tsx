@@ -113,39 +113,39 @@ export default function Histoire() {
           </div>
 
           {/* Images Column - Right Side (Staggered Grid) */}
-          <div className="w-full lg:w-7/12 reveal">
+          <div className="w-full lg:w-7/12 reveal relative">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {/* Main Image - Florist (Top Left, spans full height on desktop) */}
               <div className="md:row-span-2">
-                <div className="relative overflow-hidden bg-white shadow-lg h-full">
+                <div className="relative overflow-visible bg-white shadow-lg h-full">
                   <img
                     src="/manus-storage/Fleuriste_94e88796.jpg"
                     alt="Caroline - Fleuriste artisanale"
                     className="w-full h-full object-cover"
                   />
-                  {/* Floating badge - Depuis 1994 */}
-                  <div
-                    className="absolute bottom-8 -right-12 w-32 h-32 flex flex-col items-center justify-center"
-                    style={{ backgroundColor: "#c4847a" }}
-                  >
-                    <span
-                      className="font-display text-3xl font-bold"
-                      style={{ color: "#faf8f5" }}
-                    >
-                      1994
-                    </span>
-                    <span
-                      className="font-body text-xs tracking-widest uppercase mt-1"
-                      style={{ color: "rgba(250,248,245,0.8)" }}
-                    >
-                      Depuis
-                    </span>
-                  </div>
                 </div>
               </div>
 
               {/* Secondary Images - Shop Exterior & Interior (Right Side) */}
-              <div className="space-y-12 lg:space-y-16">
+              <div className="space-y-12 lg:space-y-16 relative">
+                {/* Floating badge - Depuis 1994 */}
+                <div
+                  className="absolute -top-8 -left-16 w-32 h-32 flex flex-col items-center justify-center z-10"
+                  style={{ backgroundColor: "#c4847a" }}
+                >
+                  <span
+                    className="font-display text-3xl font-bold"
+                    style={{ color: "#faf8f5" }}
+                  >
+                    1994
+                  </span>
+                  <span
+                    className="font-body text-xs tracking-widest uppercase mt-1"
+                    style={{ color: "rgba(250,248,245,0.8)" }}
+                  >
+                    Depuis
+                  </span>
+                </div>
                 {/* Shop Exterior */}
                 <div className="relative overflow-hidden bg-white shadow-lg">
                   <img
