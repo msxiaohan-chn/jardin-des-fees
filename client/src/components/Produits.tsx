@@ -141,10 +141,21 @@ const produits: Product[] = [
 function ProductCard({ product }: { product: Product }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const touchStartXRef = useRef<number>(0);
   const touchStartTimeRef = useRef<number>(0);
+
+  // 检测是否为移动设备
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const images = product.images.map((img) => {
     if (typeof img === "string") {
@@ -153,8 +164,9 @@ function ProductCard({ product }: { product: Product }) {
     return img;
   });
 
+  // 仅在桌面端启用自动播放
   useEffect(() => {
-    if (!isAutoPlay || images.length <= 1) return;
+    if (!isAutoPlay || images.length <= 1 || isMobile) return;
 
     autoPlayTimerRef.current = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -163,7 +175,7 @@ function ProductCard({ product }: { product: Product }) {
     return () => {
       if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
     };
-  }, [isAutoPlay, images.length]);
+  }, [isAutoPlay, images.length, isMobile]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartXRef.current = e.touches[0].clientX;
@@ -188,36 +200,49 @@ function ProductCard({ product }: { product: Product }) {
       }
     }
 
-    // 清除之前的恢复计时器
-    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    // 仅在桌面端恢复自动播放
+    if (!isMobile) {
+      // 清除之前的恢复计时器
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
 
-    // 3秒后恢复自动播放
-    resumeTimerRef.current = setTimeout(() => {
-      setIsAutoPlay(true);
-    }, 3000);
+      // 3秒后恢复自动播放
+      resumeTimerRef.current = setTimeout(() => {
+        setIsAutoPlay(true);
+      }, 3000);
+    }
   };
 
   const handlePrevious = () => {
-    setIsAutoPlay(false);
+    if (!isMobile) {
+      setIsAutoPlay(false);
+    }
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   const handleNext = () => {
-    setIsAutoPlay(false);
+    if (!isMobile) {
+      setIsAutoPlay(false);
+    }
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
   const handleDotClick = (index: number) => {
-    setIsAutoPlay(false);
+    if (!isMobile) {
+      setIsAutoPlay(false);
+    }
     setCurrentImageIndex(index);
   };
 
   const handleMouseEnter = () => {
-    setIsAutoPlay(false);
+    if (!isMobile) {
+      setIsAutoPlay(false);
+    }
   };
 
   const handleMouseLeave = () => {
-    setIsAutoPlay(true);
+    if (!isMobile) {
+      setIsAutoPlay(true);
+    }
   };
 
   const currentImage = images[currentImageIndex];
