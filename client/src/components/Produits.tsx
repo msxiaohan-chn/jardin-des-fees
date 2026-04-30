@@ -212,6 +212,14 @@ function ProductCard({ product }: { product: Product }) {
     setCurrentImageIndex(index);
   };
 
+  const handleMouseEnter = () => {
+    setIsAutoPlay(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAutoPlay(true);
+  };
+
   const currentImage = images[currentImageIndex];
 
   return (
@@ -221,6 +229,8 @@ function ProductCard({ product }: { product: Product }) {
         className="relative overflow-hidden bg-white shadow-lg rounded-lg mb-4 cursor-grab active:cursor-grabbing"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div
           style={{
