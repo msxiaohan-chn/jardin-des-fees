@@ -142,6 +142,9 @@ function ProductCard({ product }: { product: Product }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartXRef = useRef<number>(0);
+  const touchStartTimeRef = useRef<number>(0);
 
   const images = product.images.map((img) => {
     if (typeof img === "string") {
@@ -161,6 +164,38 @@ function ProductCard({ product }: { product: Product }) {
       if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
     };
   }, [isAutoPlay, images.length]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+    touchStartTimeRef.current = Date.now();
+    setIsAutoPlay(false);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchDuration = Date.now() - touchStartTimeRef.current;
+    const swipeDistance = touchStartXRef.current - touchEndX;
+    const minSwipeDistance = 50;
+
+    // 判断是否是滑动操作（距离足够，时间不太长）
+    if (Math.abs(swipeDistance) > minSwipeDistance && touchDuration < 500) {
+      if (swipeDistance > 0) {
+        // 向左滑动，显示下一张
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      } else {
+        // 向右滑动，显示上一张
+        setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+      }
+    }
+
+    // 清除之前的恢复计时器
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+
+    // 3秒后恢复自动播放
+    resumeTimerRef.current = setTimeout(() => {
+      setIsAutoPlay(true);
+    }, 3000);
+  };
 
   const handlePrevious = () => {
     setIsAutoPlay(false);
@@ -182,7 +217,11 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group">
       {/* Image Container with Adaptive Height */}
-      <div className="relative overflow-hidden bg-white shadow-lg rounded-lg mb-4">
+      <div
+        className="relative overflow-hidden bg-white shadow-lg rounded-lg mb-4 cursor-grab active:cursor-grabbing"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
           style={{
             aspectRatio: currentImage.aspectRatio,
