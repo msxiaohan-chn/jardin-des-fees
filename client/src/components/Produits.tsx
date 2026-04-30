@@ -140,8 +140,8 @@ const produits: Product[] = [
 
 function ProductCard({ product }: { product: Product }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
+  const [isAutoPlay, setIsAutoPlay] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 768);
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const touchStartXRef = useRef<number>(0);
@@ -150,7 +150,10 @@ function ProductCard({ product }: { product: Product }) {
   // 检测是否为移动设备
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      // 如果是移动端，禁用自动播放；如果是桌面端，启用自动播放
+      setIsAutoPlay(!mobile);
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -166,7 +169,7 @@ function ProductCard({ product }: { product: Product }) {
 
   // 仅在桌面端启用自动播放
   useEffect(() => {
-    if (!isAutoPlay || images.length <= 1 || isMobile) return;
+    if (!isAutoPlay || images.length <= 1) return;
 
     autoPlayTimerRef.current = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -175,7 +178,7 @@ function ProductCard({ product }: { product: Product }) {
     return () => {
       if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
     };
-  }, [isAutoPlay, images.length, isMobile]);
+  }, [isAutoPlay, images.length]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartXRef.current = e.touches[0].clientX;
@@ -205,10 +208,8 @@ function ProductCard({ product }: { product: Product }) {
       // 清除之前的恢复计时器
       if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
 
-      // 3秒后恢复自动播放
-      resumeTimerRef.current = setTimeout(() => {
-        setIsAutoPlay(true);
-      }, 3000);
+      // 立即恢复自动播放
+      setIsAutoPlay(true);
     }
   };
 
