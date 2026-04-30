@@ -116,6 +116,22 @@ const produits: Product[] = [
     highlight: false,
   },
   {
+    name: "Gerbes pour Deuil",
+    description: "Gerbes florales élégantes, compositions verticales pour un hommage solennel.",
+    price: "Sur devis",
+    tag: null,
+    images: [{ url: "/manus-storage/Gerbe01_12f4670e.jpg", aspectRatio: "0.75" }],
+    highlight: false,
+  },
+  {
+    name: "Coupes de Plantes pour Deuil",
+    description: "Compositions de plantes en coupe, symbole de vie et de continuité.",
+    price: "Sur devis",
+    tag: null,
+    images: [{ url: "/manus-storage/CoupeDePlante01_d12f5130.jpg", aspectRatio: "0.75" }],
+    highlight: false,
+  },
+  {
     name: "Plantes Intérieures",
     description: "Une sélection de plantes d'intérieur pour décorer et purifier votre espace de vie.",
     price: "Sur devis",
