@@ -24,7 +24,7 @@ const services = [
     number: "III",
     title: "Événement Entreprise",
     description:
-      "Service professionnel pour sublimer vos événements et renforcer votre image de marque. Décoration de conférences, réceptions et espaces de travail.",
+      "Service professionnel pour sublimer vos événements et renforcer votre image de marque. Décoration de conférences, réceptions et espaces de travail. Décoration Noël pour boutique.",
     tag: "Professionnel",
   },
   {

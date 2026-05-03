@@ -46,7 +46,11 @@ const produits: Product[] = [
     description: "Compositions florales élégantes pour décorer vos tables de fête et événements.",
     price: "Sur devis",
     tag: null,
-    images: [{ url: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80", aspectRatio: "4/3" }],
+    images: [
+      { url: "/manus-storage/CentreDeTable01_7cef9c24.jpg", aspectRatio: "0.75" },
+      { url: "/manus-storage/CentreDeTable02_965c9afd.jpg", aspectRatio: "0.75" },
+      { url: "/manus-storage/CentreDeTable03_f85b5723.jpg", aspectRatio: "0.75" },
+    ],
     highlight: false,
   },
   {
@@ -56,6 +60,9 @@ const produits: Product[] = [
     tag: null,
     images: [
       { url: "/manus-storage/CompositionFloraleenPot_fa7f4093.jpg", aspectRatio: "0.63" },
+      { url: "/manus-storage/CompositionFlorale02_edc4df95.jpg", aspectRatio: "0.75" },
+      { url: "/manus-storage/CompositionFlorale03_02127e1e.jpg", aspectRatio: "0.75" },
+      { url: "/manus-storage/CompositionFlorale04_945f4795.jpg", aspectRatio: "0.75" },
     ],
     highlight: false,
   },

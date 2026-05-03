@@ -36,6 +36,11 @@ const compositions = [
     description: "Couronnes mortuaires réalisées avec soin, pour un dernier hommage.",
     icon: "⊙",
   },
+  {
+    name: "Coupes de Plantes",
+    description: "Compositions de plantes en coupe, symbole de vie et de continuité.",
+    icon: "🌿",
+  },
 ];
 
 const options = [
