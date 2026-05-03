@@ -53,8 +53,8 @@ export default function Hero() {
         <div className="max-w-3xl">
           {/* Eyebrow */}
           <p
-            className="font-body text-xs tracking-[0.3em] uppercase mb-6 font-light"
-            style={{ color: "rgba(250,248,245,0.8)" }}
+            className="font-body text-sm lg:text-base tracking-[0.3em] uppercase mb-6 font-semibold"
+            style={{ color: "#ffffff" }}
           >
             Boutique depuis 1994 · Palaiseau
           </p>
