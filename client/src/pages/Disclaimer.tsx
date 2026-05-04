@@ -3,11 +3,16 @@
  * Style: Sobre, élégant, charbon avec contenu lisible
  */
 
+import Breadcrumb from "@/components/Breadcrumb";
+
 export default function Disclaimer() {
   return (
     <div style={{ backgroundColor: "#faf8f5", minHeight: "100vh" }}>
       {/* Header spacing */}
       <div style={{ height: "80px" }}></div>
+
+      {/* Breadcrumb */}
+      <Breadcrumb />
 
       {/* Main content */}
       <div className="max-w-4xl mx-auto px-6 lg:px-12 py-16">
