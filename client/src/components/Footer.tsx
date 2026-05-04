@@ -127,6 +127,36 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Legal links */}
+        <div
+          className="py-8 border-t flex flex-wrap justify-center gap-4 md:gap-6"
+          style={{ borderColor: "rgba(250,248,245,0.08)" }}
+        >
+          <a
+            href="/mentions-legales"
+            className="font-body text-xs font-light transition-colors hover:text-[#c4847a]"
+            style={{ color: "rgba(250,248,245,0.55)" }}
+          >
+            Mentions Légales
+          </a>
+          <span style={{ color: "rgba(250,248,245,0.2)" }}>·</span>
+          <a
+            href="/politique-confidentialite"
+            className="font-body text-xs font-light transition-colors hover:text-[#c4847a]"
+            style={{ color: "rgba(250,248,245,0.55)" }}
+          >
+            Politique de Confidentialité
+          </a>
+          <span style={{ color: "rgba(250,248,245,0.2)" }}>·</span>
+          <a
+            href="/disclaimer"
+            className="font-body text-xs font-light transition-colors hover:text-[#c4847a]"
+            style={{ color: "rgba(250,248,245,0.55)" }}
+          >
+            Disclaimer
+          </a>
+        </div>
+
         {/* Bottom bar */}
         <div
           className="pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-3"
