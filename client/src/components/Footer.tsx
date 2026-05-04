@@ -1,6 +1,7 @@
 /*
  * JARDIN DES FÉES — Footer Component
  * Style: Sobre, élégant, charbon avec liens fins
+ * Layout: 4 columns - Brand | Navigation | Practical Info | Legal Links
  */
 
 export default function Footer() {
@@ -12,8 +13,8 @@ export default function Footer() {
   return (
     <footer style={{ backgroundColor: "#1e1e1e" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 mb-12">
-          {/* Brand */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
+          {/* Column 1: Brand */}
           <div>
             <h3
               className="font-display text-xl font-semibold mb-2"
@@ -31,11 +32,11 @@ export default function Footer() {
               className="font-body text-sm font-light leading-relaxed"
               style={{ color: "rgba(250,248,245,0.55)" }}
             >
-              
+              Artisan fleuriste avec plus de 40 ans d'expérience.
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Column 2: Navigation */}
           <div>
             <p
               className="font-body text-xs tracking-[0.2em] uppercase mb-5"
@@ -64,7 +65,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Infos pratiques */}
+          {/* Column 3: Practical Info */}
           <div>
             <p
               className="font-body text-xs tracking-[0.2em] uppercase mb-5"
@@ -87,8 +88,6 @@ export default function Footer() {
                   24 Rue de Paris
                   <br />
                   Palaiseau, 91120
-                  <br />
-                  Au centre-ville, 3 min à pied de la Gare RER
                 </p>
               </div>
               <div>
@@ -125,63 +124,53 @@ export default function Footer() {
               </div>
             </div>
           </div>
+
+          {/* Column 4: Legal Links */}
+          <div>
+            <p
+              className="font-body text-xs tracking-[0.2em] uppercase mb-5"
+              style={{ color: "rgba(250,248,245,0.4)" }}
+            >
+              Légal
+            </p>
+            <ul className="space-y-3">
+              {[
+                { label: "Mentions Légales", href: "/mentions-legales" },
+                { label: "Politique de Confidentialité", href: "/politique-confidentialite" },
+                { label: "Politique des Cookies", href: "/politique-cookies" },
+                { label: "Disclaimer", href: "/disclaimer" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="font-body text-sm font-light transition-colors hover:text-[#c4847a]"
+                    style={{ color: "rgba(250,248,245,0.55)" }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom bar */}
         <div
-          className="pt-8 border-t flex flex-col gap-4"
+          className="pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-3"
           style={{ borderColor: "rgba(250,248,245,0.08)" }}
         >
-          {/* Copyright and legal links */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <p
-              className="font-body text-xs font-light"
-              style={{ color: "rgba(250,248,245,0.3)" }}
-            >
-              © {new Date().getFullYear()} Jardin des Fées — Tous droits réservés
-            </p>
-            <p
-              className="font-body text-xs font-light italic"
-              style={{ color: "rgba(250,248,245,0.25)" }}
-            >
-              Fait avec ❤ à Palaiseau
-            </p>
-          </div>
-
-          {/* Legal links */}
-          <div className="flex flex-wrap gap-3 text-xs">
-            <a
-              href="/mentions-legales"
-              className="font-body font-light transition-colors hover:text-[#c4847a]"
-              style={{ color: "rgba(250,248,245,0.55)" }}
-            >
-              Mentions Légales
-            </a>
-            <span style={{ color: "rgba(250,248,245,0.2)" }}>·</span>
-            <a
-              href="/politique-confidentialite"
-              className="font-body font-light transition-colors hover:text-[#c4847a]"
-              style={{ color: "rgba(250,248,245,0.55)" }}
-            >
-              Politique de Confidentialité
-            </a>
-            <span style={{ color: "rgba(250,248,245,0.2)" }}>·</span>
-            <a
-              href="/politique-cookies"
-              className="font-body font-light transition-colors hover:text-[#c4847a]"
-              style={{ color: "rgba(250,248,245,0.55)" }}
-            >
-              Politique des Cookies
-            </a>
-            <span style={{ color: "rgba(250,248,245,0.2)" }}>·</span>
-            <a
-              href="/disclaimer"
-              className="font-body font-light transition-colors hover:text-[#c4847a]"
-              style={{ color: "rgba(250,248,245,0.55)" }}
-            >
-              Disclaimer
-            </a>
-          </div>
+          <p
+            className="font-body text-xs font-light"
+            style={{ color: "rgba(250,248,245,0.3)" }}
+          >
+            © {new Date().getFullYear()} Jardin des Fées — Tous droits réservés
+          </p>
+          <p
+            className="font-body text-xs font-light italic"
+            style={{ color: "rgba(250,248,245,0.25)" }}
+          >
+            Fait avec ❤ à Palaiseau
+          </p>
         </div>
       </div>
     </footer>
