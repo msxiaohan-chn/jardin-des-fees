@@ -19,7 +19,54 @@ export default function MentionsLegales() {
         </h1>
 
         <div className="space-y-8">
-          {/* Section 1: Éditeur */}
+          {/* Section 1: Responsable de la publication */}
+          <section>
+            <h2
+              className="font-display text-2xl font-semibold mb-4"
+              style={{ color: "#1e1e1e" }}
+            >
+              Responsable de la publication
+            </h2>
+            <p
+              className="font-body text-base leading-relaxed mb-3"
+              style={{ color: "#3a3a3a" }}
+            >
+              <strong>Nom :</strong> Caroline Meaux
+            </p>
+            <p
+              className="font-body text-base leading-relaxed mb-3"
+              style={{ color: "#3a3a3a" }}
+            >
+              <strong>Entreprise :</strong> Au Jardin des Fées
+            </p>
+            <p
+              className="font-body text-base leading-relaxed mb-3"
+              style={{ color: "#3a3a3a" }}
+            >
+              <strong>Adresse :</strong> 24 Rue de Paris, 91120 Palaiseau, France
+            </p>
+            <p
+              className="font-body text-base leading-relaxed mb-3"
+              style={{ color: "#3a3a3a" }}
+            >
+              <strong>Téléphone :</strong> 01 60 14 39 89
+            </p>
+            <p
+              className="font-body text-base leading-relaxed mb-3"
+              style={{ color: "#3a3a3a" }}
+            >
+              <strong>Email :</strong>{" "}
+              <a
+                href="mailto:caroline.meaux@orange.fr"
+                style={{ color: "#c4847a", textDecoration: "none" }}
+                className="hover:underline"
+              >
+                caroline.meaux@orange.fr
+              </a>
+            </p>
+          </section>
+
+          {/* Section 2: Éditeur */}
           <section>
             <h2
               className="font-display text-2xl font-semibold mb-4"
@@ -66,7 +113,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          {/* Section 2: Identification */}
+          {/* Section 3: Identification */}
           <section>
             <h2
               className="font-display text-2xl font-semibold mb-4"
@@ -88,7 +135,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          {/* Section 3: Hébergement */}
+          {/* Section 4: Hébergement */}
           <section>
             <h2
               className="font-display text-2xl font-semibold mb-4"
@@ -111,7 +158,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          {/* Section 4: Propriété intellectuelle */}
+          {/* Section 5: Propriété intellectuelle */}
           <section>
             <h2
               className="font-display text-2xl font-semibold mb-4"
@@ -131,7 +178,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          {/* Section 5: Responsabilité */}
+          {/* Section 6: Responsabilité */}
           <section>
             <h2
               className="font-display text-2xl font-semibold mb-4"
@@ -158,7 +205,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          {/* Section 6: Liens externes */}
+          {/* Section 7: Liens externes */}
           <section>
             <h2
               className="font-display text-2xl font-semibold mb-4"
@@ -176,7 +223,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          {/* Section 7: Données personnelles */}
+          {/* Section 8: Données personnelles */}
           <section>
             <h2
               className="font-display text-2xl font-semibold mb-4"
@@ -201,7 +248,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          {/* Section 8: Contact */}
+          {/* Section 9: Contact */}
           <section>
             <h2
               className="font-display text-2xl font-semibold mb-4"
